@@ -1,0 +1,119 @@
+2024-03-11T09:29:20.563-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:29:20.563-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:29:20.636-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:29:20.637-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:29:20.637-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:29:20.646-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:29:20.647-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 83 ms
+2024-03-11T09:29:20.686-05:00  INFO 17166 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-11T09:29:20.690-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-11T09:29:20.692-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Started TeleHealthClientApplication in 0.15 seconds (process running for 1815.453)
+2024-03-11T09:29:20.692-05:00  INFO 17166 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-11T09:30:19.620-05:00  INFO 17166 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-03-11T09:30:19.681-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:30:19.681-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:30:19.741-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:30:19.741-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:30:19.741-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:30:19.747-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:30:19.747-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 65 ms
+2024-03-11T09:30:19.749-05:00  WARN 17166 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'telehealthClientController': Resolution of declared constructors on bean Class [dev.chaitanyaallu.telehealthclient.controller.TelehealthClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@15c85836] failed
+2024-03-11T09:30:19.750-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-03-11T09:30:19.753-05:00  INFO 17166 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-11T09:30:19.762-05:00 ERROR 17166 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'telehealthClientController': Resolution of declared constructors on bean Class [dev.chaitanyaallu.telehealthclient.controller.TelehealthClientController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@15c85836] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:383) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1294) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1189) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624) ~[spring-context-6.1.4.jar:6.1.4]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354) ~[spring-boot-3.2.3.jar:3.2.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-3.2.3.jar:3.2.3]
+	at dev.chaitanyaallu.telehealthclient.TeleHealthClientApplication.main(TeleHealthClientApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.2.3.jar:3.2.3]
+Caused by: java.lang.NoClassDefFoundError: dev/chaitanyaallu/telehealthclient/service/TelehealthClientService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3373) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2555) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:378) ~[spring-beans-6.1.4.jar:6.1.4]
+	... 23 common frames omitted
+Caused by: java.lang.ClassNotFoundException: dev.chaitanyaallu.telehealthclient.service.TelehealthClientService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:467) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.2.3.jar:3.2.3]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+	... 27 common frames omitted
+
+2024-03-11T09:32:09.199-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:32:09.199-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:32:09.359-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:32:09.361-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:32:09.361-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:32:09.369-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:32:09.370-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 167 ms
+2024-03-11T09:32:09.376-05:00  INFO 17166 --- [restartedMain] d.c.t.service.TelehealthClientService    : Initializing ECC key pair for the server.
+2024-03-11T09:32:09.491-05:00  INFO 17166 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-11T09:32:09.497-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-11T09:32:09.500-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Started TeleHealthClientApplication in 0.338 seconds (process running for 1984.265)
+2024-03-11T09:32:09.500-05:00  INFO 17166 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-11T09:32:10.908-05:00  INFO 17166 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 6 class path changes (6 additions, 0 deletions, 0 modifications)
+2024-03-11T09:32:10.961-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:32:10.961-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:32:11.022-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:32:11.022-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:32:11.022-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:32:11.027-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:32:11.027-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 65 ms
+2024-03-11T09:32:11.030-05:00  INFO 17166 --- [restartedMain] d.c.t.service.TelehealthClientService    : Initializing ECC key pair for the server.
+2024-03-11T09:32:11.058-05:00  INFO 17166 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-11T09:32:11.066-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-11T09:32:11.068-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Started TeleHealthClientApplication in 0.118 seconds (process running for 1985.834)
+2024-03-11T09:32:11.069-05:00  INFO 17166 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-11T09:33:18.036-05:00  INFO 17166 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-03-11T09:33:18.097-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:33:18.097-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:33:18.272-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:33:18.273-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:33:18.273-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:33:18.281-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:33:18.281-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 183 ms
+2024-03-11T09:33:18.287-05:00  INFO 17166 --- [restartedMain] d.c.t.service.TelehealthClientService    : Initializing ECC key pair for the server.
+2024-03-11T09:33:18.364-05:00  INFO 17166 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-11T09:33:18.368-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-11T09:33:18.371-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Started TeleHealthClientApplication in 0.284 seconds (process running for 2053.137)
+2024-03-11T09:33:18.371-05:00  INFO 17166 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-11T09:33:33.926-05:00  INFO 17166 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-03-11T09:33:33.993-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Starting TeleHealthClientApplication using Java 17.0.8 with PID 17166 (/Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient/target/classes started by chaitanyaallu in /Users/chaitanyaallu/Desktop/Cryptography Project/TeleHealthClient)
+2024-03-11T09:33:33.993-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : No active profile set, falling back to 1 default profile: "default"
+2024-03-11T09:33:34.059-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2024-03-11T09:33:34.059-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-03-11T09:33:34.059-05:00  INFO 17166 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-03-11T09:33:34.064-05:00  INFO 17166 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2024-03-11T09:33:34.064-05:00  INFO 17166 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 70 ms
+2024-03-11T09:33:34.067-05:00  INFO 17166 --- [restartedMain] d.c.t.service.TelehealthClientService    : Initializing ECC key pair for the server.
+2024-03-11T09:33:34.097-05:00  INFO 17166 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-03-11T09:33:34.102-05:00  INFO 17166 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path ''
+2024-03-11T09:33:34.104-05:00  INFO 17166 --- [restartedMain] d.c.t.TeleHealthClientApplication        : Started TeleHealthClientApplication in 0.121 seconds (process running for 2068.871)
+2024-03-11T09:33:34.105-05:00  INFO 17166 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-03-11T09:33:50.687-05:00  INFO 17166 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
