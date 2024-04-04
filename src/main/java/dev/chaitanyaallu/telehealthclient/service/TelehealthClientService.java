@@ -12,16 +12,22 @@ import org.bouncycastle.crypto.params.ParametersWithIV;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.KeyPair;
 import java.security.MessageDigest;
 import java.security.PrivateKey;
@@ -62,6 +68,81 @@ public class TelehealthClientService {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public Path decryptReceivedFile(Path encryptedFilePath) throws Exception {
+        if (derivedKey == null) {
+            throw new IllegalStateException("Encryption key has not been set.");
+        }
+
+        byte[] encryptedData = Files.readAllBytes(encryptedFilePath);
+
+        // Extract nonce and decrypt
+        byte[] nonce = Arrays.copyOfRange(encryptedData, 0, 12);
+        byte[] ciphertextAndMac = Arrays.copyOfRange(encryptedData, 12, encryptedData.length);
+        byte[] decryptedData = CryptoUtil.decryptChaCha20(ciphertextAndMac, derivedKey, nonce);
+
+        // Verify hash and extract original file content
+        int hashSize = 32; // For SHA3-256
+        byte[] originalFileBytes = Arrays.copyOfRange(decryptedData, 0, decryptedData.length - hashSize);
+        byte[] originalHash = Arrays.copyOfRange(decryptedData, decryptedData.length - hashSize, decryptedData.length);
+        byte[] recalculatedHash = CryptoUtil.hashUsingSHA3(originalFileBytes);
+        if (!Arrays.equals(originalHash, recalculatedHash)) {
+            throw new SecurityException("File integrity check failed.");
+        }
+
+        // Safer path manipulation
+        Path decryptedFilePath = encryptedFilePath.getParent().resolve(encryptedFilePath.getFileName().toString().replaceAll("\\.enc$", ""));
+        Files.write(decryptedFilePath, originalFileBytes);
+
+        return decryptedFilePath;
+    }
+
+    public String encryptAndSendFile(Path filePath, String originalFilename) throws Exception {
+        if (derivedKey == null) {
+            throw new IllegalStateException("Encryption key has not been derived.");
+        }
+
+        // Read file bytes
+        byte[] fileBytes = Files.readAllBytes(filePath);
+
+        // Hash, Encrypt, Combine with nonce
+        byte[] messageHash = CryptoUtil.hashUsingSHA3(fileBytes);
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        outputStream.write(fileBytes);
+        outputStream.write(messageHash);
+        byte[] combinedMessage = outputStream.toByteArray();
+
+        byte[] nonce = CryptoUtil.generateNonce();
+        byte[] encryptedMessage = CryptoUtil.encryptChaCha20(combinedMessage, derivedKey, nonce);
+        byte[] combinedEncryptedMessage = CryptoUtil.combineNonceAndCiphertext(nonce, encryptedMessage);
+
+        // Temporarily write to a file (if needed)
+        Path encryptedFilePath = Files.createTempFile(null, ".enc");
+        Files.write(encryptedFilePath, combinedEncryptedMessage);
+
+        // Prepare and send the encrypted file
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.MULTIPART_FORM_DATA);
+
+        MultiValueMap<String, Object> body = new LinkedMultiValueMap<>();
+        body.add("file", new FileSystemResource(encryptedFilePath.toFile()));
+        body.add("originalFilename", originalFilename); // Include original filename as form data
+
+        HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
+        ResponseEntity<String> response = restTemplate.postForEntity(serverUrl+"/receiveFile", requestEntity, String.class);
+
+        // Check response status and handle errors
+        if (!response.getStatusCode().is2xxSuccessful()) {
+            throw new RuntimeException("Failed to send file: " + response.getBody());
+        }
+
+        // Optionally, delete the temporary file after sending
+        Files.delete(encryptedFilePath);
+
+        // Return response body or handle as needed
+        return response.getBody();
     }
 
 
